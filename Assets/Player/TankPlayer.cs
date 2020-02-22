@@ -13,7 +13,6 @@ public class TankPlayer : MonoBehaviour
     private Light light_comp;
     
     public int player_id = 0;
-    public Color player_color;
     public float speed = 5.0f;
     public float rotation_speed = 10.0f;
     public GameObject respawn_bounds;
@@ -22,7 +21,10 @@ public class TankPlayer : MonoBehaviour
     public float proj_offset = 1;
 
     private Vector3 player_position;
-    
+
+    public int team_id;
+    public int player_ID;
+    public Color player_color;
     
     
 
@@ -34,7 +36,7 @@ public class TankPlayer : MonoBehaviour
         light_comp = transform.Find("Point Light").GetComponent<Light>();
 
         player_mat.SetColor("_Color", player_color);
-        player_mat.SetColor("_EmmisionColor", player_color);
+       // player_mat.SetColor("_EmmisionColor", player_color);
         light_comp.color = player_color;
 
     }

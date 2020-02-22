@@ -255,7 +255,7 @@ PrefabInstance:
     - target: {fileID: 1421800565682902376, guid: fc2c3fe727b8c3b479804be5f3593413,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.65
+      value: -20.5
       objectReference: {fileID: 0}
     - target: {fileID: 1421800565682902376, guid: fc2c3fe727b8c3b479804be5f3593413,
         type: 3}
@@ -265,7 +265,7 @@ PrefabInstance:
     - target: {fileID: 1421800565682902376, guid: fc2c3fe727b8c3b479804be5f3593413,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.79
+      value: -12.8
       objectReference: {fileID: 0}
     - target: {fileID: 1421800565682902376, guid: fc2c3fe727b8c3b479804be5f3593413,
         type: 3}
@@ -642,8 +642,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3be11d8aff1a44caf5e31979c88e32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number_of_teams: 2
-  team_size: 3
+  number_of_teams: 10
+  team_size: 10
   tank: {fileID: 1421800565682902371, guid: fc2c3fe727b8c3b479804be5f3593413, type: 3}
 --- !u!4 &1114043978
 Transform:
