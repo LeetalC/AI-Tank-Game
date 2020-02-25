@@ -9,7 +9,7 @@ public class TankPlayer : MonoBehaviour
     private Vector3 moveVect = Vector3.zero;
     private bool alive = true;
     private GameObject proj_ref;
-    private Material player_mat;
+
     private Light light_comp;
     
     public int player_id = 0;
@@ -20,24 +20,38 @@ public class TankPlayer : MonoBehaviour
     public GameObject projectile;
     public float proj_offset = 1;
 
-    private Vector3 player_position;
 
+
+    private Vector3 player_position;
+    public Material player_mat;
     public int team_id;
     public int player_ID;
     public Color player_color;
-    
-    
+    public GameObject spawn_bounds;
+
+
+    void SpawnPlayer() {
+        Bounds bounds = spawn_bounds.GetComponent<BoxCollider>().bounds;
+        GetComponent<Transform>().position = new Vector3(
+            Random.Range(bounds.min.x, bounds.max.x),
+            0.55f,
+            Random.Range(bounds.min.z, bounds.max.z)
+        );
+    }
 
     // Standardizes the colors of the player and assigns variables to be used later
     void Start()
-    {
-        body = GetComponent<Rigidbody>();
-        player_mat = GetComponent<Renderer>().material;
-        light_comp = transform.Find("Point Light").GetComponent<Light>();
+    { 
+        //player_mat = GetComponent<Renderer>().material;
 
-        player_mat.SetColor("_Color", player_color);
+        SpawnPlayer();
+        body = GetComponent<Rigidbody>();
+        //light_comp = transform.Find("Point Light").GetComponent<Light>();
+       // light_comp.color = player_color;
        // player_mat.SetColor("_EmmisionColor", player_color);
-        light_comp.color = player_color;
+       // player_mat.SetColor("_Color", player_color);
+        
+
 
     }
 
@@ -70,9 +84,9 @@ public class TankPlayer : MonoBehaviour
             proj_ref = Instantiate(projectile, transform.position + transform.forward * proj_offset, transform.rotation);
             
             proj_ref.GetComponent<Projectile>().set_pid(player_id);
-            proj_ref.GetComponent<Renderer>().material.SetColor("_Color", player_color);
-            proj_ref.GetComponent<Renderer>().material.SetColor("_EmmisionColor", player_color);
-            proj_ref.transform.Find("Point Light").GetComponent<Light>().color = player_color;
+         //   proj_ref.GetComponent<Renderer>().material.SetColor("_Color", player_color);
+           // proj_ref.GetComponent<Renderer>().material.SetColor("_EmmisionColor", player_color);
+           // proj_ref.transform.Find("Point Light").GetComponent<Light>().color = player_color;
             
             proj_ref.SetActive(true);
         }
@@ -98,6 +112,7 @@ public class TankPlayer : MonoBehaviour
             }
         }
     }
+
 
     // Called when player is hit from another bullet
     //    This will wait "wait" seconds before randomly placing the player

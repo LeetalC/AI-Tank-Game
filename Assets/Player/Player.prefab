@@ -41,9 +41,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 9
   m_Type: 2
-  m_Color: {r: 0, g: 0.6156863, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.6427478, b: 1, a: 1}
   m_Intensity: 1
-  m_Range: 100
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -149,7 +149,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2303966b8456da243b5ea950114994d5, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 1421800565682902381}
   - component: {fileID: 1421800565682902378}
   - component: {fileID: 1421800565682902380}
+  - component: {fileID: 6768129313532424107}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -246,7 +247,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2303966b8456da243b5ea950114994d5, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -293,13 +294,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player_id: 0
-  player_color: {r: 0, g: 0, b: 0, a: 0}
   speed: 5
   rotation_speed: 10
   respawn_bounds: {fileID: 0}
   projectile: {fileID: 2936517950623996518, guid: 9d4c6a3e4eda859428a8229bc9beea11,
     type: 3}
   proj_offset: 1
+  player_mat: {fileID: 2100000, guid: 2303966b8456da243b5ea950114994d5, type: 2}
+  team_id: 6
+  player_ID: 2
+  player_color: {r: 0, g: 0.6427478, b: 1, a: 1}
+  spawn_bounds: {fileID: 0}
 --- !u!54 &1421800565682902380
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -316,3 +321,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &6768129313532424107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421800565682902371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8563e9a2ab8e2f449bc784c0b8730542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
