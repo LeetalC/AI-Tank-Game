@@ -4,7 +4,7 @@ using UnityEngine;
 //PUT A README REGARDING HOW TO CHANGE NUM OF TEAMS
 public class AIBehavior : MonoBehaviour
 {
-   // private GameObject[] EnemyTanks;
+
     List<GameObject> EnemyTanks = new List<GameObject>();
     TankPlayer thisTank;
 
@@ -23,7 +23,7 @@ public class AIBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Move();
     }
 
     void FindEnemy() {
@@ -34,7 +34,11 @@ public class AIBehavior : MonoBehaviour
     }
 
     void Move() {
+        thisTank.transform.position += thisTank.GetComponent<transform>(). * Time.deltaTime;
+       // thisTank.body.velocity = new Vector3(thisTank.speed,thisTank.speed, thisTank.speed);
 
     }
+
+
 
 }

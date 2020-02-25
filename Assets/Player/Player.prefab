@@ -41,7 +41,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 9
   m_Type: 2
-  m_Color: {r: 0.31400788, g: 0, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.6991391, b: 0, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -293,6 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f64a28e6983c3748ac81f1bc898fa23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  body: {fileID: 0}
   moveVect: {x: 0, y: 0, z: 0}
   player_id: 0
   speed: 5
@@ -302,9 +303,9 @@ MonoBehaviour:
     type: 3}
   proj_offset: 1
   player_mat: {fileID: 2100000, guid: 2303966b8456da243b5ea950114994d5, type: 2}
-  team_id: 3
-  player_ID: 2
-  player_color: {r: 0.31400788, g: 0, b: 1, a: 1}
+  team_id: 6
+  player_ID: 5
+  player_color: {r: 1, g: 0.6991391, b: 0, a: 1}
   spawn_bounds: {fileID: 0}
 --- !u!54 &1421800565682902380
 Rigidbody:

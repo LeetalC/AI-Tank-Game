@@ -44,36 +44,21 @@ public class CreateTeams : MonoBehaviour
          for(int i = 1; i <= number_of_teams; i++) {
             Color team_color = GetRandomColor();
             Debug.Log("Current team Color: " + team_color);
-
             for (int k = 1; k <= number_of_team_members; k++) {
-
                 TankPlayer thisTank = tank.GetComponent<TankPlayer>();
                 thisTank.spawn_bounds = bounds[i-1];
                 AssignColor(team_color, thisTank);
                 Instantiate(tank);
                 thisTank.team_id = i;
                 thisTank.player_ID = k; 
-
                // thisTank.player_mat.SetColor("_Color",team_color);
               //  thisTank.player_mat.SetColor("_EmissionColor",team_color);
-                        
-
-                
+              
             }
 
         }
     }
-    void ShuffleArr(float[] arr)
-    {
-        // Knuth shuffle algorithm :: courtesy of Wikipedia :)
-        for (int t = 0; t < arr.Length; t++ )
-        {
-            float tmp = arr[t];
-            int r = Random.Range(t, arr.Length);
-            arr[t] = arr[r];
-            arr[r] = tmp;
-        }
-    }
+
     Color GetRandomColor() {
         randomColor = Random.Range(0.0f + i + 10.0f,30.0f + i)/255.0f;
         float[] arr = {0.0f, 1.0f, randomColor};  //helps keep colors vibrant
@@ -102,5 +87,17 @@ public class CreateTeams : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void ShuffleArr(float[] arr)
+    {
+        // Knuth shuffle algorithm :: courtesy of Wikipedia :)
+        for (int t = 0; t < arr.Length; t++ )
+        {
+            float tmp = arr[t];
+            int r = Random.Range(t, arr.Length);
+            arr[t] = arr[r];
+            arr[r] = tmp;
+        }
     }
 }

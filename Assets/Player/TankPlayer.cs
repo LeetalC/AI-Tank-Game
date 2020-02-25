@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TankPlayer : MonoBehaviour
 {
-    Rigidbody body;
+    public Rigidbody body;  //i made this public
 
     public Vector3 moveVect = Vector3.zero; //i made this public
     private bool alive = true;
@@ -37,6 +37,7 @@ public class TankPlayer : MonoBehaviour
             0.55f,
             Random.Range(bounds.min.z, bounds.max.z)
         );
+        transform.rotation = Quaternion.Euler (0, Random.Range (0,360), 0);
     }
 
     // Standardizes the colors of the player and assigns variables to be used later
@@ -58,10 +59,10 @@ public class TankPlayer : MonoBehaviour
     // Physics are applied here
     void FixedUpdate(){
         // Apply motion
-        body.velocity = moveVect;
+         body.velocity = moveVect;
 
         // Apply Rotation based on current velocity
-        if (moveVect.x != 0 || moveVect.z != 0)
+         if (moveVect.x != 0 || moveVect.z != 0)
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0.0f, Mathf.Rad2Deg * Mathf.Atan2(moveVect.x, moveVect.z), 0.0f), rotation_speed);
     }
 
