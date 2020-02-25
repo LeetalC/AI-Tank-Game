@@ -42,7 +42,7 @@ public class CreateTeams : MonoBehaviour
 
     void TeamInit() {
          for(int i = 1; i <= number_of_teams; i++) {
-            Color team_color = RandomColor();
+            Color team_color = GetRandomColor();
             Debug.Log("Current team Color: " + team_color);
 
             for (int k = 1; k <= number_of_team_members; k++) {
@@ -63,7 +63,7 @@ public class CreateTeams : MonoBehaviour
 
         }
     }
-    void shuffleArr(float[] arr)
+    void ShuffleArr(float[] arr)
     {
         // Knuth shuffle algorithm :: courtesy of Wikipedia :)
         for (int t = 0; t < arr.Length; t++ )
@@ -74,11 +74,11 @@ public class CreateTeams : MonoBehaviour
             arr[r] = tmp;
         }
     }
-    Color RandomColor() {
+    Color GetRandomColor() {
         randomColor = Random.Range(0.0f + i + 10.0f,30.0f + i)/255.0f;
         float[] arr = {0.0f, 1.0f, randomColor};  //helps keep colors vibrant
         i += 30.0f;
-        shuffleArr(arr);
+        ShuffleArr(arr);
         Color newColor = new Color(arr[0], arr[1], arr[2], 1.0f);
         return newColor;
         

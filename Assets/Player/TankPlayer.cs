@@ -6,13 +6,13 @@ public class TankPlayer : MonoBehaviour
 {
     Rigidbody body;
 
-    private Vector3 moveVect = Vector3.zero;
+    public Vector3 moveVect = Vector3.zero; //i made this public
     private bool alive = true;
     private GameObject proj_ref;
 
     private Light light_comp;
     
-    public int player_id = 0;
+    public int player_id = 0;   //the one that matters is player_ID, deleting this later
     public float speed = 5.0f;
     public float rotation_speed = 10.0f;
     public GameObject respawn_bounds;
@@ -80,18 +80,17 @@ public class TankPlayer : MonoBehaviour
         //    Instances a projectile object slightly offset forward of the player,
         //    projectile is instanced disabled, and we assign variables to it.
         //    When it is ready, it will set it to active and will travel.
-        if (Input.GetButtonDown("SHOOT_"+get_pid_str())){
+        if (Input.GetButtonDown("SHOOT_" + get_pid_str())){
             proj_ref = Instantiate(projectile, transform.position + transform.forward * proj_offset, transform.rotation);
             
             proj_ref.GetComponent<Projectile>().set_pid(player_id);
-         //   proj_ref.GetComponent<Renderer>().material.SetColor("_Color", player_color);
-           // proj_ref.GetComponent<Renderer>().material.SetColor("_EmmisionColor", player_color);
-           // proj_ref.transform.Find("Point Light").GetComponent<Light>().color = player_color;
+            proj_ref.GetComponent<Renderer>().material.SetColor("_Color", player_color);
+            proj_ref.GetComponent<Renderer>().material.SetColor("_EmmisionColor", player_color);
+            proj_ref.transform.Find("Point Light").GetComponent<Light>().color = player_color;
             
             proj_ref.SetActive(true);
         }
 
-      //  Transform.position = player_position;
     }
 
     // Called when any collision enters this object's collision
@@ -142,4 +141,13 @@ public class TankPlayer : MonoBehaviour
     public int get_pid(){
         return player_id;
     }
+
+    public int get_team_id() {
+        return team_id;
+    }
+
+    public Vector3 get_player_position() {
+        return player_position;
+    }
 }
+
