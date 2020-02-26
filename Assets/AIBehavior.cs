@@ -6,38 +6,50 @@ public class AIBehavior : MonoBehaviour
 {
 
     List<GameObject> EnemyTanks = new List<GameObject>();
-    TankPlayer thisTank;
+    TankPlayer this_tank;
+    bool enemy_targetted = false;
+    bool is_valid_enemy = false;
+    public static int i = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        thisTank = gameObject.GetComponent<TankPlayer>();
+        this_tank = gameObject.GetComponent<TankPlayer>();
          foreach(GameObject tank in GameObject.FindGameObjectsWithTag("Player")) {
-            if(tank.GetComponent<TankPlayer>().get_team_id() != thisTank.get_team_id()) {
+            if(tank.GetComponent<TankPlayer>().get_team_id() != this_tank.get_team_id()) {
              EnemyTanks.Add(tank);
             }
          }
-         FindEnemy();
+      //   FindEnemy();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Move();
-    }
+       this_tank.Move();
 
+    }
+    void FixedUpdate() {
+        //FindEnemy();
+    }
+    void TargetEnemy() {
+        enemy_targetted = true;
+       // this_tank.transform.rotation = Quaternion.Euler (find_center);
+    }
     void FindEnemy() {
         if(EnemyTanks.Count != 0) {
-            Debug.Log("Tank: " + thisTank.get_team_id() + " found: " + EnemyTanks[0].GetComponent<TankPlayer>().get_team_id());
+         //   Debug.Log("Tank: " + this_tank.get_team_id() + " found: " + EnemyTanks[0].GetComponent<TankPlayer>().get_team_id());
         }
-      //  thisTank.transform.rotation = EnemyTanks[0].GetComponent<BoxCollider>.bounds.center;
-    }
 
-    void Move() {
-        thisTank.transform.position += thisTank.GetComponent<transform>(). * Time.deltaTime;
-       // thisTank.body.velocity = new Vector3(thisTank.speed,thisTank.speed, thisTank.speed);
+        Vector3 find_center =  EnemyTanks[0].GetComponent<BoxCollider>().bounds.center;
+        TargetEnemy();
 
     }
+
+    public void ChangeDirection() {
+        this_tank.transform.rotation = Quaternion.Euler (0, this_tank.current_y + 185.0f, 0);
+        this_tank.current_y = this_tank.current_y + 185.0f;
+    } 
 
 
 

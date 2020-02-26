@@ -41,7 +41,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 9
   m_Type: 2
-  m_Color: {r: 1, g: 0.6991391, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.5, b: 0, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -179,7 +179,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1421800564936936605}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -279,8 +279,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0591202, y: 1, z: 1.4985917}
+  m_Center: {x: -0.010725498, y: 0, z: 0.24929595}
 --- !u!114 &1421800565682902378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,12 +301,13 @@ MonoBehaviour:
   respawn_bounds: {fileID: 0}
   projectile: {fileID: 2936517950623996518, guid: 9d4c6a3e4eda859428a8229bc9beea11,
     type: 3}
-  proj_offset: 1
+  proj_offset: 2
   player_mat: {fileID: 2100000, guid: 2303966b8456da243b5ea950114994d5, type: 2}
   team_id: 6
-  player_ID: 5
-  player_color: {r: 1, g: 0.6991391, b: 0, a: 1}
+  player_ID: 8
+  player_color: {r: 1, g: 0.5, b: 0, a: 1}
   spawn_bounds: {fileID: 0}
+  current_y: 0
 --- !u!54 &1421800565682902380
 Rigidbody:
   m_ObjectHideFlags: 0

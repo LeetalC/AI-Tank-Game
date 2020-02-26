@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     Rigidbody body;
     public float speed = 5.0f;
     private int player_id = 0;
+    private int team_id;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,15 +26,36 @@ public class Projectile : MonoBehaviour
         if (other.gameObject.CompareTag("Wall")){
             Destroy(gameObject);
         }
-        else if (other.gameObject.CompareTag("Enemy")){
-            Destroy(gameObject);
+        else if(other.gameObject.CompareTag("PlayerProjectile")) {
+           Destroy(gameObject);
         }
-        else if (other.gameObject.CompareTag("Player")){
-            if(other.gameObject.GetComponent<TankPlayer>().get_pid() != player_id)
-            Destroy(gameObject);
+        else if(other.gameObject.CompareTag("Player")) {
+           if(other.gameObject.GetComponent<TankPlayer>().get_team_id() != team_id)
+           {
+                Destroy(other.gameObject);
+           }
+           Destroy(gameObject);
         }
+
+
+//yangs code
+
+        
+        // else if (other.gameObject.CompareTag("Player")){
+        //     if(other.gameObject.GetComponent<TankPlayer>().get_pid() != player_id)
+        //         Destroy(gameObject);
+        // }
+
+
+        // else if (other.gameObject.CompareTag("Enemy")){
+        //     Destroy(gameObject);
+        // }
     }
 
+
+    public void set_team_id(int tid) {
+        team_id = tid;
+    }
     public void set_pid(int pid){
         player_id = pid;
     }
