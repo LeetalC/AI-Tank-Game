@@ -22,9 +22,6 @@ public class CreateTeams : MonoBehaviour
     static float randomColor;
     static float i = 0;
 
-    public Color[] team_colors = {new Color(1,0,0,1), new Color(0,1,0,1), new Color(1,1,0,1), new Color(1,0,1,1), new Color(0,1,1,1), new Color(0,0,0,1)};
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -41,9 +38,11 @@ public class CreateTeams : MonoBehaviour
     }
 
     void TeamInit() {
+        Color[] team_colors = {Color.magenta, Color.red, Color.blue , Color.green, Color.yellow, Color.cyan};
+        
          for(int i = 1; i <= number_of_teams; i++) {
             Color team_color = team_colors[i-1];
-            //Debug.Log("Current team Color: " + team_color);
+            Debug.Log("Current team Color: " + (i-1) + " " + team_colors[i-1]);
 
             for (int k = 1; k <= number_of_team_members; k++) {
 
@@ -80,26 +79,26 @@ public class CreateTeams : MonoBehaviour
 
 
 
-    void ShuffleArr(float[] arr)
-    {
-        // Knuth shuffle algorithm :: courtesy of Wikipedia :)
-        for (int t = 0; t < arr.Length; t++ )
-        {
-            float tmp = arr[t];
-            int r = Random.Range(t, arr.Length);
-            arr[t] = arr[r];
-            arr[r] = tmp;
-        }
-    }
+    // void ShuffleArr(float[] arr)
+    // {
+    //     // Knuth shuffle algorithm :: courtesy of Wikipedia :)
+    //     for (int t = 0; t < arr.Length; t++ )
+    //     {
+    //         float tmp = arr[t];
+    //         int r = Random.Range(t, arr.Length);
+    //         arr[t] = arr[r];
+    //         arr[r] = tmp;
+    //     }
+    // }
 
     
-    Color GetRandomColor() {
-        randomColor = Random.Range(0.0f + i + 10.0f,30.0f + i)/255.0f;
-        float[] arr = {0.0f, 1.0f, randomColor};  //helps keep colors vibrant
-        i += 30.0f;
-        ShuffleArr(arr);
-        Color newColor = new Color(arr[0], arr[1], arr[2], 1.0f);
-        return newColor;
+    // Color GetRandomColor() {
+    //     randomColor = Random.Range(0.0f + i + 10.0f,30.0f + i)/255.0f;
+    //     float[] arr = {0.0f, 1.0f, randomColor};  //helps keep colors vibrant
+    //     i += 30.0f;
+    //     ShuffleArr(arr);
+    //     Color newColor = new Color(arr[0], arr[1], arr[2], 1.0f);
+    //     return newColor;
         
-    }
+    // }
 }

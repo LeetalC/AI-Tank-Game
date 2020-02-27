@@ -561,17 +561,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3be11d8aff1a44caf5e31979c88e32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number_of_teams: 10
-  number_of_team_members: 10
+  number_of_teams: 6
+  number_of_team_members: 5
   tank: {fileID: 1421800565682902371, guid: fc2c3fe727b8c3b479804be5f3593413, type: 3}
   bounds: []
-  team_colors:
-  - {r: 1, g: 0, b: 0.5, a: 1}
-  - {r: 1, g: 0.5, b: 0, a: 1}
-  - {r: 0.5, g: 0, b: 1, a: 1}
-  - {r: 0.5, g: 1, b: 0, a: 1}
-  - {r: 0, g: 0.5, b: 1, a: 1}
-  - {r: 1, g: 0.5, b: 0, a: 1}
 --- !u!4 &1114043978
 Transform:
   m_ObjectHideFlags: 0
