@@ -6,8 +6,12 @@ public class Projectile : MonoBehaviour
 {
     Rigidbody body;
     public float speed = 5.0f;
-    private int player_id = 0;
+    private int player_id;
     private int team_id;
+    public AIBehavior ai;
+    
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +37,8 @@ public class Projectile : MonoBehaviour
            if(other.gameObject.GetComponent<TankPlayer>().get_team_id() != team_id)
            {
                 Destroy(other.gameObject);
+                ai.RemoveTankFromList(other.gameObject);
+
            }
            Destroy(gameObject);
         }

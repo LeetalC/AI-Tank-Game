@@ -562,7 +562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number_of_teams: 6
-  number_of_team_members: 5
+  number_of_team_members: 3
   tank: {fileID: 1421800565682902371, guid: fc2c3fe727b8c3b479804be5f3593413, type: 3}
   bounds: []
 --- !u!4 &1114043978

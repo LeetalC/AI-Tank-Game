@@ -46,11 +46,10 @@ public class TankPlayer : MonoBehaviour
     void Start()
     { 
         //player_mat = GetComponent<Renderer>().material;
-
         SpawnPlayer();
         body = GetComponent<Rigidbody>();
        // light_comp = transform.Find("Point Light").GetComponent<Light>();
-      //  light_comp.color = player_color;
+        //  light_comp.color = player_color;
        // player_mat.SetColor("_EmmisionColor", player_color);
        // player_mat.SetColor("_Color", player_color);
         
@@ -67,11 +66,11 @@ public class TankPlayer : MonoBehaviour
         // Apply motion
       //   body.velocity = moveVect;
 
-         body.velocity = speed * transform.forward;
+        body.velocity = speed * transform.forward;
 
         // Apply Rotation based on current velocity
-         if (moveVect.x != 0 || moveVect.z != 0)
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0.0f, Mathf.Rad2Deg * Mathf.Atan2(moveVect.x, moveVect.z), 0.0f), rotation_speed);
+        //  if (moveVect.x != 0 || moveVect.z != 0)
+        //     transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0.0f, Mathf.Rad2Deg * Mathf.Atan2(moveVect.x, moveVect.z), 0.0f), rotation_speed);
     }
 
 
@@ -98,7 +97,7 @@ public class TankPlayer : MonoBehaviour
 
 
     //LEETAL: The logic in this function is copy/pasted from Update()
-    void Shoot() {
+    public void Shoot() {
             proj_ref = Instantiate(projectile, transform.position + transform.forward * proj_offset, transform.rotation);
             
             proj_ref.GetComponent<Projectile>().set_pid(player_id);

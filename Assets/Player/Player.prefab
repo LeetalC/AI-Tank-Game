@@ -304,7 +304,7 @@ MonoBehaviour:
   proj_offset: 2
   player_mat: {fileID: 2100000, guid: 2303966b8456da243b5ea950114994d5, type: 2}
   team_id: 6
-  player_ID: 5
+  player_ID: 3
   player_color: {r: 0, g: 1, b: 1, a: 1}
   spawn_bounds: {fileID: 0}
   current_y: 0
@@ -336,3 +336,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8563e9a2ab8e2f449bc784c0b8730542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pole: {fileID: 4756083052149083592, guid: 1b3e9d2150127d24c896f501aba03255, type: 3}
+  lookdir: {x: 0, y: 0, z: 0, w: 0}

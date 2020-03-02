@@ -20,7 +20,8 @@ public class CreateTeams : MonoBehaviour
     public GameObject[] bounds;
 
     static float randomColor;
-    static float i = 0;
+
+    Color[] team_colors = {Color.magenta, Color.red, Color.blue, Color.green, Color.yellow, Color.cyan};
 
     // Start is called before the first frame update
     void Start()
@@ -31,31 +32,28 @@ public class CreateTeams : MonoBehaviour
     }
 
 
-
     void CheckTeamSize() {
         number_of_team_members = Mathf.Clamp(number_of_team_members, min_number_of_team_members,max_number_of_team_members);
         number_of_teams = Mathf.Clamp(number_of_teams,min_number_of_teams,max_number_of_teams);
     }
 
     void TeamInit() {
-        Color[] team_colors = {Color.magenta, Color.red, Color.blue , Color.green, Color.yellow, Color.cyan};
         
          for(int i = 1; i <= number_of_teams; i++) {
             Color team_color = team_colors[i-1];
-            Debug.Log("Current team Color: " + (i-1) + " " + team_colors[i-1]);
 
             for (int k = 1; k <= number_of_team_members; k++) {
-
+                Debug.Log(team_color + "team id: " + i);
                 TankPlayer this_tank = tank.GetComponent<TankPlayer>();
                 this_tank.spawn_bounds = bounds[i-1];
                 AssignColor(team_color, this_tank);
-                Instantiate(tank);
                 this_tank.team_id = i;
-                this_tank.player_ID = k; 
+                this_tank.player_ID = k;
+                Instantiate(tank);
+
               
             }
-
-        }
+         }
     }
 
     void AssignColor(Color color, TankPlayer tank) {
