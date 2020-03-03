@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     Rigidbody body;
-    public float speed = 5.0f;
+    public float speed = 10.0f;
     private int player_id;
     private int team_id;
     public AIBehavior ai;
@@ -36,12 +36,12 @@ public class Projectile : MonoBehaviour
         else if(other.gameObject.CompareTag("Player")) {
            if(other.gameObject.GetComponent<TankPlayer>().get_team_id() != team_id)
            {
+                Debug.Log(team_id + " hit: " + other.gameObject.GetComponent<TankPlayer>().get_team_id());;
                 Destroy(other.gameObject);
-                ai.RemoveTankFromList(other.gameObject);
-
            }
            Destroy(gameObject);
         }
+
 
 
 //yangs code
