@@ -41,9 +41,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 9
   m_Type: 2
-  m_Color: {r: 0, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_Intensity: 1
-  m_Range: 20
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -239,7 +239,7 @@ MeshRenderer:
   m_GameObject: {fileID: 1421800565682902371}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -303,9 +303,9 @@ MonoBehaviour:
     type: 3}
   proj_offset: 2
   player_mat: {fileID: 2100000, guid: 2303966b8456da243b5ea950114994d5, type: 2}
-  team_id: 6
-  player_ID: 8
-  player_color: {r: 0, g: 1, b: 1, a: 1}
+  team_id: 8
+  player_ID: 10
+  player_color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   spawn_bounds: {fileID: 0}
   current_y: 0
 --- !u!54 &1421800565682902380

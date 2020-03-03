@@ -10,10 +10,10 @@ public class CreateTeams : MonoBehaviour
     [SerializeField]
     public int number_of_team_members;
 
-    private int max_number_of_team_members = 8;
+    private int max_number_of_team_members = 10;
     private int min_number_of_team_members = 1;
 
-    private int max_number_of_teams = 6;
+    private int max_number_of_teams = 8;
     private int min_number_of_teams = 1;
 
     public GameObject tank;
@@ -25,13 +25,14 @@ public class CreateTeams : MonoBehaviour
     //attempting to congrats winner
     public TextMesh winner_text;
     public Light main_light;
+    Light ml;
 
-    Color[] team_colors = {Color.magenta, Color.red, Color.blue, Color.green, Color.yellow, Color.cyan};
+    Color[] team_colors = {Color.magenta, Color.red, Color.blue, Color.green, Color.yellow, Color.cyan, Color.white, Color.grey};
 
     // Start is called before the first frame update
     void Start()
     {
-        main_light = GetComponent<Light>();
+        ml = main_light.GetComponent<Light>();
         bounds = GameObject.FindGameObjectsWithTag("Respawn");
         CheckTeamSize();
         TeamInit();
@@ -82,9 +83,10 @@ public class CreateTeams : MonoBehaviour
 
     public void DeclareWinner(Color color)
     {
-        main_light.color = color;
-        winner_text.text = "someone wins!";
-        Debug.Log("HUDHEWIFHWEIO");
+        ml.color = color;
+        ml.intensity = .5f;
+        winner_text.text = "Winner!";
+        winner_text.color = color;
     }
 
 

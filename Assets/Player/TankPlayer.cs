@@ -125,7 +125,6 @@ public class TankPlayer : MonoBehaviour
                 // start an asychronous call to respawn_delayed(wait_time).
                 // Also disable the player control.
                if(alive){
-                    
                     alive = false;
                     GetComponent<TankPlayer>().enabled = false;
                     light_comp.enabled = false;

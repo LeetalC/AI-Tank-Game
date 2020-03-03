@@ -14,7 +14,7 @@ public class AIBehavior : MonoBehaviour
     public static bool winner_found = false;
     public static Color winner_color;
 
-
+    public static bool bullet_failed = false;
     public CreateTeams winner_script;
 
 
@@ -23,27 +23,24 @@ public class AIBehavior : MonoBehaviour
     {
         this_tank_component = gameObject.GetComponent<TankPlayer>();
          foreach(GameObject tank in GameObject.FindGameObjectsWithTag("Player")) {
-            AllTanks.Add(tank);
+            if(AllTanks.Contains(tank) == false) {
+                AllTanks.Add(tank);
+            }
             if(tank.GetComponent<TankPlayer>().get_team_id() != this_tank_component.get_team_id()) {
                 EnemyTanks.Add(tank);
             }
          }
-        InvokeRepeating("FindEnemy", Random.Range(1.0f,2.0f), Random.Range(.5f, 3.0f));
+        InvokeRepeating("FindEnemy", Random.Range(.5f,2.0f), Random.Range(.5f, 3.0f));
     }
 
-    void FixedUpdate() {
+    void Update() {
         GetEnemies();
-        if (winner_found)
-        {
-
-            winner_found = false;
-        }
     }
+
 
     void GetEnemies() {
         AllTanks.RemoveAll(GameObject => GameObject == null);
         EnemyTanks.RemoveAll(GameObject => GameObject == null);
-
     }
     
     void FindEnemy() {
@@ -52,7 +49,13 @@ public class AIBehavior : MonoBehaviour
             Vector3 center_of_enemy =  (EnemyTanks[random_enemy_index].GetComponent<BoxCollider>().bounds.center - gameObject.transform.position);
             look_at_enemy = Quaternion.LookRotation(center_of_enemy);
             this_tank_component.transform.rotation = look_at_enemy;
-            this_tank_component.Shoot();
+            if(AllTanks.Count <= 2 && bullet_failed == false) {
+                Debug.Log(gameObject.GetComponent<TankPlayer>().player_color + " shot failed");
+                bullet_failed = true;
+            }
+            else {
+                this_tank_component.Shoot();
+            }
         }
         else
         {

@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour
     private int player_id;
     private int team_id;
 
+    public AIBehavior ai;
 
 
     // Start is called before the first frame update
