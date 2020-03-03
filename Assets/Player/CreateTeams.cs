@@ -21,11 +21,17 @@ public class CreateTeams : MonoBehaviour
 
     static float randomColor;
 
+
+    //attempting to congrats winner
+    public TextMesh winner_text;
+    public Light main_light;
+
     Color[] team_colors = {Color.magenta, Color.red, Color.blue, Color.green, Color.yellow, Color.cyan};
 
     // Start is called before the first frame update
     void Start()
     {
+        main_light = GetComponent<Light>();
         bounds = GameObject.FindGameObjectsWithTag("Respawn");
         CheckTeamSize();
         TeamInit();
@@ -43,12 +49,12 @@ public class CreateTeams : MonoBehaviour
             Color team_color = team_colors[i-1];
 
             for (int k = 1; k <= number_of_team_members; k++) {
-                Debug.Log(team_color + "team id: " + i);
-                TankPlayer this_tank = tank.GetComponent<TankPlayer>();
-                this_tank.spawn_bounds = bounds[i-1];
-                AssignColor(team_color, this_tank);
-                this_tank.team_id = i;
-                this_tank.player_ID = k;
+                //Debug.Log(team_color + "team id: " + i);
+                TankPlayer this_tank_component = tank.GetComponent<TankPlayer>();
+                this_tank_component.spawn_bounds = bounds[i-1];
+                AssignColor(team_color, this_tank_component);
+                this_tank_component.team_id = i;
+                this_tank_component.player_ID = k;
                 Instantiate(tank);
 
               
@@ -72,7 +78,13 @@ public class CreateTeams : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+    }
+
+    public void DeclareWinner(Color color)
+    {
+        main_light.color = color;
+        winner_text.text = "someone wins!";
+        Debug.Log("HUDHEWIFHWEIO");
     }
 
 

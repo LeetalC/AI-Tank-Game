@@ -7,7 +7,6 @@ public class TankPlayer : MonoBehaviour
     public Rigidbody body;  //i made this public
     public Vector3 moveVect = Vector3.zero; //i made this public
 
-
     private GameObject proj_ref;
 
     private Light light_comp;
@@ -99,7 +98,7 @@ public class TankPlayer : MonoBehaviour
     //LEETAL: The logic in this function is copy/pasted from Update()
     public void Shoot() {
             proj_ref = Instantiate(projectile, transform.position + transform.forward * proj_offset, transform.rotation);
-            
+          
             proj_ref.GetComponent<Projectile>().set_pid(player_id);
             proj_ref.GetComponent<Projectile>().set_team_id(team_id);
             proj_ref.GetComponent<Renderer>().material.SetColor("_Color", player_color);

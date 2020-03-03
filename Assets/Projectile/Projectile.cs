@@ -5,11 +5,12 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     Rigidbody body;
-    public float speed = 10.0f;
+    [SerializeField]
+    private float speed = 10.0f;
+
     private int player_id;
     private int team_id;
-    public AIBehavior ai;
-    
+
 
 
     // Start is called before the first frame update
@@ -17,7 +18,6 @@ public class Projectile : MonoBehaviour
     {
         body = GetComponent<Rigidbody>();
         body.velocity = transform.forward * speed;
-        // print("firing projectile with pid: " + player_id.ToString());
     }
 
     // Update is called once per frame
@@ -36,7 +36,6 @@ public class Projectile : MonoBehaviour
         else if(other.gameObject.CompareTag("Player")) {
            if(other.gameObject.GetComponent<TankPlayer>().get_team_id() != team_id)
            {
-                Debug.Log(team_id + " hit: " + other.gameObject.GetComponent<TankPlayer>().get_team_id());;
                 Destroy(other.gameObject);
            }
            Destroy(gameObject);

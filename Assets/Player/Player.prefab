@@ -336,5 +336,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8563e9a2ab8e2f449bc784c0b8730542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  k: 0
-  lookdir: {x: 0, y: 0, z: 0, w: 0}
+  winner_script: {fileID: 0}
