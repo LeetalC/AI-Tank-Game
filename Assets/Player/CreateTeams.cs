@@ -24,15 +24,15 @@ public class CreateTeams : MonoBehaviour
 
     //attempting to congrats winner
     public TextMesh winner_text;
-    public Light main_light;
-    Light ml;
+    public Light main_light_component;
+    Light main_light;
 
-    Color[] team_colors = {Color.magenta, Color.red, Color.blue, Color.green, Color.yellow, Color.cyan, Color.white, Color.grey};
+    Color[] team_colors = { new Color(1, 0, .47f, 1), Color.red, new Color(0, .30f, 1, 1), new Color(.20f, 1, 0, 1), Color.yellow, Color.cyan, Color.white, new Color(1.0f, .30f, 0.0f, 1.0f)};
 
     // Start is called before the first frame update
     void Start()
     {
-        ml = main_light.GetComponent<Light>();
+        main_light = main_light_component.GetComponent<Light>();
         bounds = GameObject.FindGameObjectsWithTag("Respawn");
         CheckTeamSize();
         TeamInit();
@@ -83,8 +83,8 @@ public class CreateTeams : MonoBehaviour
 
     public void DeclareWinner(Color color)
     {
-        ml.color = color;
-        ml.intensity = .5f;
+        main_light.color = color;
+        main_light.intensity = .5f;
         winner_text.text = "Winner!";
         winner_text.color = color;
     }

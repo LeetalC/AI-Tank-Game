@@ -611,7 +611,7 @@ MonoBehaviour:
   tank: {fileID: 1421800565682902371, guid: fc2c3fe727b8c3b479804be5f3593413, type: 3}
   bounds: []
   winner_text: {fileID: 1840100504}
-  main_light: {fileID: 1380031473}
+  main_light_component: {fileID: 1380031473}
 --- !u!4 &1114043978
 Transform:
   m_ObjectHideFlags: 0

@@ -23,11 +23,12 @@ public class TankPlayer : MonoBehaviour
     private bool alive = true;
     private Vector3 player_position;
     public Material player_mat;
+    public Color player_color;
+
     public int team_id;
     public int player_ID;
-    public Color player_color;
     public GameObject spawn_bounds;
-    public float current_y;
+    public float random_rotation_y;
 
 
     void SpawnPlayer() {
@@ -37,8 +38,8 @@ public class TankPlayer : MonoBehaviour
             0.55f,
             Random.Range(bounds.min.z, bounds.max.z)
         );
-        current_y = Random.Range(0,360);
-        transform.rotation = Quaternion.Euler( 0, current_y, 0); //chooses a random rotation at the start
+        random_rotation_y = Random.Range(0,360);
+        transform.rotation = Quaternion.Euler( 0, random_rotation_y, 0); //chooses a random rotation at the start
     }
 
     // Standardizes the colors of the player and assigns variables to be used later
@@ -109,14 +110,11 @@ public class TankPlayer : MonoBehaviour
     }
 
 
-    //LEETAL: This function isn't needed, taking care of 'death' in Projectle.cs
-    // Called when any collision enters this object's collision
     void OnCollisionEnter(Collision other){
 
         if(other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("Player")) {
-            gameObject.GetComponent<AIBehavior>().ChangeDirection();
+         //    gameObject.GetComponent<AIBehavior>().ChangeDirection();
         }
-
 
         if (other.gameObject.CompareTag("PlayerProjectile")){
             // Ensure that this projectile wasn't spawned by the player themselves
@@ -133,7 +131,7 @@ public class TankPlayer : MonoBehaviour
             }
         }
     }
-
+    //LEETAL: made this function because sometimes a tank would continue to collide with a wall
     void OnCollisionStay(Collision other) {
         if(other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("Player")) {
             gameObject.GetComponent<AIBehavior>().ChangeDirection();

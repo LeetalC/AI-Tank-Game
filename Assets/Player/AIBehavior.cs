@@ -69,8 +69,8 @@ public class AIBehavior : MonoBehaviour
     }
 
     public void ChangeDirection() {
-        this_tank_component.transform.rotation = Quaternion.Euler (0, this_tank_component.current_y + 185.0f, 0);
-        this_tank_component.current_y = this_tank_component.current_y + 185.0f;
+        this_tank_component.transform.rotation = Quaternion.Euler (0, this_tank_component.random_rotation_y + 185.0f, 0);
+        this_tank_component.random_rotation_y = this_tank_component.random_rotation_y + 185.0f;
     } 
 
 }
