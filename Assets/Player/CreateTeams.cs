@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CreateTeams : MonoBehaviour
 {
@@ -79,6 +80,10 @@ public class CreateTeams : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            RestartGame();
+        }
     }
 
     public void DeclareWinner(Color color)
@@ -88,6 +93,12 @@ public class CreateTeams : MonoBehaviour
         winner_text.text = "Winner!";
         winner_text.color = color;
     }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // loads current scene
+    }
+
 
 
 
@@ -103,7 +114,7 @@ public class CreateTeams : MonoBehaviour
     //     }
     // }
 
-    
+
     // Color GetRandomColor() {
     //     randomColor = Random.Range(0.0f + i + 10.0f,30.0f + i)/255.0f;
     //     float[] arr = {0.0f, 1.0f, randomColor};  //helps keep colors vibrant
@@ -111,6 +122,6 @@ public class CreateTeams : MonoBehaviour
     //     ShuffleArr(arr);
     //     Color newColor = new Color(arr[0], arr[1], arr[2], 1.0f);
     //     return newColor;
-        
+
     // }
 }

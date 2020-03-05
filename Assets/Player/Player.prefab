@@ -305,7 +305,7 @@ MonoBehaviour:
   player_mat: {fileID: 2100000, guid: 2303966b8456da243b5ea950114994d5, type: 2}
   player_color: {r: 1, g: 0.3, b: 0, a: 1}
   team_id: 8
-  player_ID: 10
+  player_ID: 4
   spawn_bounds: {fileID: 0}
   random_rotation_y: 0
 --- !u!54 &1421800565682902380

@@ -37,7 +37,12 @@ public class Projectile : MonoBehaviour
         else if(other.gameObject.CompareTag("Player")) {
            if(other.gameObject.GetComponent<TankPlayer>().get_team_id() != team_id)
            {
-                Destroy(other.gameObject);
+                //WHY!! I JUST WANT TO USE MY STATIC 
+              //  if (other.gameObject.GetComponent<AIBehavior>().AllTanks.Count > 1)
+              //  {
+              //button in the game that spawns a bulelt on top of every tank
+                    Destroy(other.gameObject);
+              //  }
            }
            Destroy(gameObject);
         }

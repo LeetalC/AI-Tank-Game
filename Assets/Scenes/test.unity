@@ -607,7 +607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number_of_teams: 9
-  number_of_team_members: 10
+  number_of_team_members: 4
   tank: {fileID: 1421800565682902371, guid: fc2c3fe727b8c3b479804be5f3593413, type: 3}
   bounds: []
   winner_text: {fileID: 1840100504}

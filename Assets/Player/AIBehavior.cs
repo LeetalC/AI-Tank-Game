@@ -15,6 +15,7 @@ public class AIBehavior : MonoBehaviour
     public static Color winner_color;
 
     public static bool bullet_failed = false;
+    private bool this_bullet_failed = false;
     public CreateTeams winner_script;
 
 
@@ -49,9 +50,11 @@ public class AIBehavior : MonoBehaviour
             Vector3 center_of_enemy =  (EnemyTanks[random_enemy_index].GetComponent<BoxCollider>().bounds.center - gameObject.transform.position);
             look_at_enemy = Quaternion.LookRotation(center_of_enemy);
             this_tank_component.transform.rotation = look_at_enemy;
-            if(AllTanks.Count <= 2 && bullet_failed == false) {
+
+            if(AllTanks.Count <= 3 && bullet_failed == false) {
                 Debug.Log(gameObject.GetComponent<TankPlayer>().player_color + " shot failed");
                 bullet_failed = true;
+                CancelInvoke("FindEnemy");
             }
             else {
                 this_tank_component.Shoot();
@@ -59,7 +62,6 @@ public class AIBehavior : MonoBehaviour
         }
         else
         {
-
             winner_found = true;
             winner_color = gameObject.GetComponent<TankPlayer>().player_color;
             winner_script = FindObjectOfType<CreateTeams>();
