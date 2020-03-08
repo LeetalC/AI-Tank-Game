@@ -11,9 +11,6 @@ public class Projectile : MonoBehaviour
     private int player_id;
     private int team_id;
 
-    public AIBehavior ai;
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -35,37 +32,20 @@ public class Projectile : MonoBehaviour
            Destroy(gameObject);
         }
         else if(other.gameObject.CompareTag("Player")) {
-           if(other.gameObject.GetComponent<TankPlayer>().get_team_id() != team_id)
-           {
-                //WHY!! I JUST WANT TO USE MY STATIC 
-              //  if (other.gameObject.GetComponent<AIBehavior>().AllTanks.Count > 1)
-              //  {
-              //button in the game that spawns a bulelt on top of every tank
-                    Destroy(other.gameObject);
-              //  }
+           if(other.gameObject.GetComponent<TankPlayer>().get_team_id() != team_id) {
+                Destroy(other.gameObject);
            }
            Destroy(gameObject);
         }
-
-
-
-//yangs code
-
-        
-        // else if (other.gameObject.CompareTag("Player")){
-        //     if(other.gameObject.GetComponent<TankPlayer>().get_pid() != player_id)
-        //         Destroy(gameObject);
-        // }
-
-
-        // else if (other.gameObject.CompareTag("Enemy")){
-        //     Destroy(gameObject);
-        // }
     }
 
 
-    public void set_team_id(int tid) {
+    public void set_team_id(int tid){
         team_id = tid;
+    }
+
+    public int get_team_id(int tid){
+        return team_id;
     }
     public void set_pid(int pid){
         player_id = pid;

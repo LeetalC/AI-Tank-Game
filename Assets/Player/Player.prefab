@@ -41,7 +41,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 9
   m_Type: 2
-  m_Color: {r: 1, g: 0.3, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.3, b: 1, a: 1}
   m_Intensity: 1.1
   m_Range: 20
   m_SpotAngle: 30
@@ -294,18 +294,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 0}
-  moveVect: {x: 0, y: 0, z: 0}
-  player_id: 0
   speed: 5
   rotation_speed: 10
-  respawn_bounds: {fileID: 0}
   projectile: {fileID: 2936517950623996518, guid: 9d4c6a3e4eda859428a8229bc9beea11,
     type: 3}
   proj_offset: 2
-  player_mat: {fileID: 2100000, guid: 2303966b8456da243b5ea950114994d5, type: 2}
-  player_color: {r: 1, g: 0.3, b: 0, a: 1}
-  team_id: 8
-  player_ID: 4
+  player_mat: {fileID: 0}
+  player_color: {r: 0, g: 0.3, b: 1, a: 1}
+  team_id: 3
+  player_ID: 15
   spawn_bounds: {fileID: 0}
   random_rotation_y: 0
 --- !u!54 &1421800565682902380
@@ -322,7 +319,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &6768129313532424107
 MonoBehaviour:
