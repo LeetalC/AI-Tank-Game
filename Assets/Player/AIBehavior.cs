@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//PUT A README REGARDING HOW TO CHANGE NUM OF TEAMS
+
 public class AIBehavior : MonoBehaviour
 {
 
@@ -12,7 +12,7 @@ public class AIBehavior : MonoBehaviour
     private Quaternion look_at_enemy;
     public static Color winner_color;
 
-    public static bool bullet_failed = false;
+    //public static bool bullet_failed = false;
     public CreateTeams winner_script;
 
 
@@ -64,14 +64,14 @@ public class AIBehavior : MonoBehaviour
             look_at_enemy = Quaternion.LookRotation(center_of_enemy);
             this_tank_component.transform.rotation = look_at_enemy;
 
-            if(all_tanks.Count <= 3 && bullet_failed == false) {
-                Debug.Log(gameObject.GetComponent<TankPlayer>().player_color + " shot failed");
-                bullet_failed = true;
-                CancelInvoke("FindEnemy");
-            }
-            else {
+            //if(all_tanks.Count <= 3 && bullet_failed == false) {
+            //    Debug.Log(gameObject.GetComponent<TankPlayer>().player_color + " shot failed");
+            //    bullet_failed = true;
+            //    CancelInvoke("FindEnemy");
+            //}
+            //else {
                 this_tank_component.Shoot();
-            }
+           // }
         }
     }
 

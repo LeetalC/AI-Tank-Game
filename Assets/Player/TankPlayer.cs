@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TankPlayer : MonoBehaviour
 {
-    public Rigidbody body;  //i made this public
+    public Rigidbody body;
 
     private GameObject proj_ref;
     
@@ -47,14 +47,9 @@ public class TankPlayer : MonoBehaviour
     }
 
     public void Move() {
-        // Apply motion
-      //   body.velocity = moveVect;
 
         body.velocity = speed * transform.forward;
 
-        // Apply Rotation based on current velocity
-        //  if (moveVect.x != 0 || moveVect.z != 0)
-        //     transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0.0f, Mathf.Rad2Deg * Mathf.Atan2(moveVect.x, moveVect.z), 0.0f), rotation_speed);
     }
 
 
@@ -91,7 +86,6 @@ public class TankPlayer : MonoBehaviour
 
     
 
-    //was used 
     string get_pid_str(){
         return player_ID.ToString();
     }
@@ -120,7 +114,8 @@ public class TankPlayer : MonoBehaviour
  
 }
 
-//LEETAL: This function is for respawning, but the game doesn't need this
+//LEETAL: This function is for respawning, but the game doesn't need this -- refactored the logic for 'spawn_bounds instead!
+
 // Called when player is hit from another bullet
 //    This will wait "wait" seconds before randomly placing the player
 //    within some BoxCollider. Re-enable it's lights and set alive to true.
@@ -144,32 +139,3 @@ public class TankPlayer : MonoBehaviour
 //    gameObject.SetActive(true);
 //}
 
-
-// Calculate Movement based on raw axis input
-//    Raw because Unity does some interpolation behind the scenes when
-//    the player changes their input. GetAxisRaw will ignore the interpolation
-//moveVect = new Vector3(Input.GetAxisRaw("HORIZONTAL_MOVE_"+get_pid_str()) * speed, body.velocity.y, Input.GetAxisRaw("VERTICAL_MOVE_"+get_pid_str()) * speed);        
-
-// Check for shoot button down
-//    For the sake of reusability, Input map has SHOOT_0 and SHOOT_1
-//    We just need to append the player's ID to SHOOT_ to get
-//    the appropriate check for input
-//
-//    Instances a projectile object slightly offset forward of the player,
-//    projectile is instanced disabled, and we assign variables to it.
-//    When it is ready, it will set it to active and will travel.
-
-//if (other.gameObject.CompareTag("PlayerProjectile")){
-//    // Ensure that this projectile wasn't spawned by the player themselves
-//    if (other.gameObject.GetComponent<Projectile>().get_team_id() != team_id){
-//        // If the player was alive when this occured, turn off their light and
-//        // start an asychronous call to respawn_delayed(wait_time).
-//        // Also disable the player control.
-//       if(alive){
-//            alive = false;
-//            GetComponent<TankPlayer>().enabled = false;
-//            light_comp.enabled = false;
-//            StartCoroutine(respawn_delayed(3));
-//        }
-//    }
-//}
